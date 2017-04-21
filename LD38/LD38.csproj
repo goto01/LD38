@@ -83,10 +83,14 @@
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectCamera.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectSprite.cs" />
     <Compile Include="Assets\Scripts\Components\BindingExample.cs" />
+    <Compile Include="Assets\Scripts\Components\SingletonExample.cs" />
     <Compile Include="Assets\Scripts\Core\PropertyAttributes\BindingAttribute.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\BindingMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Helpers\FieldInfoHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Helpers\SystemTypeHelper.cs" />
+    <Compile Include="Assets\Scripts\Core\Staff\Singleton\ISingletonMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Core\Staff\Singleton\SingletonMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Core\Staff\Singleton\UnitySingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
