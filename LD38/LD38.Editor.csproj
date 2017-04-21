@@ -135,6 +135,7 @@
     <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioObject_Editor.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioUtility.cs" />
     <Compile Include="Assets\Scripts\Editor\CustomProperties\BindingProperty.cs" />
+    <Compile Include="Assets\Scripts\Editor\Editors\OWCCursorEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\HierarchyTags\HierarchyTags.cs" />
     <Compile Include="Assets\Scripts\Editor\HierarchyTags\TagsSettings.cs" />
     <Compile Include="Assets\Scripts\Editor\HierarchyTags\TagsSettingsWindow.cs" />

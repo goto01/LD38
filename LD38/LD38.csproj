@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -108,6 +110,9 @@
     <Compile Include="Assets\Scripts\Core\Staff\BindingMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Helpers\FieldInfoHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Helpers\SystemTypeHelper.cs" />
+    <Compile Include="Assets\Scripts\Core\Staff\Helpers\VectorHelper.cs" />
+    <Compile Include="Assets\Scripts\Core\Staff\OWCCursorRenderer\OWCCursor.cs" />
+    <Compile Include="Assets\Scripts\Core\Staff\OWCCursorRenderer\CursorRenderer.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Singleton\ISingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Singleton\SingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Singleton\UnitySingleton.cs" />
