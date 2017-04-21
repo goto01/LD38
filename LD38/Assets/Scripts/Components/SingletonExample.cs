@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.Core.Staff.Singleton;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Components
 {
-    class SingletonExample : SingletonMonoBehaviour<SingletonExample>
+    class SingletonExample : Core.Staff.Singleton.SingletonMonoBehaviour<SingletonExample>
     {
         public override void AwakeSingleton()
         {

@@ -1,8 +1,6 @@
-﻿using Assets.Scripts.Core.Staff.Singleton;
-
-namespace Assets.Scripts.Controllers
+﻿namespace Assets.Scripts.Controllers
 {
-    public abstract class BaseController<T> : SingletonMonoBehaviour<T> where T : SingletonMonoBehaviour<T>
+    public abstract class BaseController<T> : Core.Staff.Singleton.SingletonMonoBehaviour<T> where T : Core.Staff.Singleton.SingletonMonoBehaviour<T>
     {
         public const string Tag = "GameController";
 

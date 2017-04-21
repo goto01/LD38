@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Core.Staff.Singleton;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Controllers
 {

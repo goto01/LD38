@@ -75,6 +75,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioController.cs" />
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioControllerHelper.cs" />
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioFader.cs" />
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioItem.cs" />
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioLog.cs" />
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioObject.cs" />
+    <Compile Include="Assets\AudioToolkit\ExampleBehaviours\Auxiliary\AudioTriggerBase.cs" />
+    <Compile Include="Assets\AudioToolkit\ExampleBehaviours\PauseAllAudio.cs" />
+    <Compile Include="Assets\AudioToolkit\ExampleBehaviours\PlayAudio.cs" />
+    <Compile Include="Assets\AudioToolkit\ExampleBehaviours\PlayMusicPlaylist.cs" />
+    <Compile Include="Assets\AudioToolkit\ExampleBehaviours\StopAllAudio.cs" />
+    <Compile Include="Assets\AudioToolkit\ExampleBehaviours\StopAudio.cs" />
+    <Compile Include="Assets\AudioToolkit\ExampleBehaviours\UnpauseAllAudio.cs" />
+    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\ArrayHelper.cs" />
+    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\FlashSupport.cs" />
+    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
+    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\RegisteredComponent.cs" />
+    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\SystemTime.cs" />
+    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\UnitySingleton.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfect.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfectHSBColor.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\Internal\PixelPerfectObject.cs" />
@@ -94,6 +113,7 @@
     <Compile Include="Assets\Scripts\Core\Staff\Singleton\UnitySingleton.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\AudioToolkit\Readme.txt" />
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

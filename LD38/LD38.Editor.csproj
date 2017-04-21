@@ -129,12 +129,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioController_Editor.cs" />
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioItemOverview.cs" />
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioLogView.cs" />
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioObject_Editor.cs" />
+    <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioUtility.cs" />
     <Compile Include="Assets\Scripts\Editor\CustomProperties\BindingProperty.cs" />
     <Compile Include="Assets\Scripts\Editor\HierarchyTags\HierarchyTags.cs" />
     <Compile Include="Assets\Scripts\Editor\HierarchyTags\TagsSettings.cs" />
     <Compile Include="Assets\Scripts\Editor\HierarchyTags\TagsSettingsWindow.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\AudioToolkit\Readme.txt" />
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
