@@ -84,6 +84,8 @@
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectSprite.cs" />
     <Compile Include="Assets\Scripts\Components\BindingExample.cs" />
     <Compile Include="Assets\Scripts\Components\SingletonExample.cs" />
+    <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ControllerExample.cs" />
     <Compile Include="Assets\Scripts\Core\PropertyAttributes\BindingAttribute.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\BindingMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Helpers\FieldInfoHelper.cs" />
@@ -95,6 +97,7 @@
   <ItemGroup>
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>
