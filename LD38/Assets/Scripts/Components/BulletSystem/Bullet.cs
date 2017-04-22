@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Components.Movement;
-using Assets.Scripts.Core.Staff.Pool;
+using Assets.Scripts.Controllers;
 using UnityEngine;
 
 namespace Assets.Scripts.Components.BulletSystem
@@ -23,6 +23,16 @@ namespace Assets.Scripts.Components.BulletSystem
             var pos = transform.position;
             transform.position = new Vector3(position.x, position.y, pos.z);
             _direction = direction;
+        }
+
+        public void OnCollisionEnter2D(Collision2D other)
+        {
+            gameObject.SetActive(false);
+            var sparkle = EffectController.Instance.Sparkles.Pop();
+            sparkle.transform.position = new Vector3(transform.position.x,
+                transform.position.y,
+                sparkle.transform.position.z);
+            EffectController.Instance.Shake();
         }
     }
 }
