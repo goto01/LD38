@@ -14,6 +14,10 @@ namespace Assets.Scripts.Components.Enteties
         protected virtual void Update()
         {
             if (TimeToMakeShot) MakeShot();
+            var pos = (Vector3)InputController.Instance.GetDirectionToPointer(transform.position);
+            var angle = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+
         }
 
         private void MakeShot()

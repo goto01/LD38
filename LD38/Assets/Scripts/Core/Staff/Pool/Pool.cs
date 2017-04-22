@@ -39,6 +39,7 @@ namespace Assets.Scripts.Core.Staff.Pool
         private void ItemOnDisable(object sender, EventArgs eventArgs)
         {
             var item = sender as PoolableItem;
+            item.Disable -= ItemOnDisable;
             _items.Add(item);
         }
     }
