@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Components\BindingExample.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\BaseMovement.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\Components\PoolExample.cs" />
     <Compile Include="Assets\Scripts\Components\SingletonExample.cs" />
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraSizeController.cs" />
@@ -112,11 +113,14 @@
     <Compile Include="Assets\Scripts\Controllers\InputController\InputItem.cs" />
     <Compile Include="Assets\Scripts\Core\PropertyAttributes\BindingAttribute.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\BindingMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Core\Staff\Helpers\EventHandlerHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Helpers\FieldInfoHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Helpers\SystemTypeHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Helpers\VectorHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\OWCCursorRenderer\OWCCursor.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\OWCCursorRenderer\CursorRenderer.cs" />
+    <Compile Include="Assets\Scripts\Core\Staff\Pool\Pool.cs" />
+    <Compile Include="Assets\Scripts\Core\Staff\Pool\PoolableItem.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Singleton\ISingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Singleton\SingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Singleton\UnitySingleton.cs" />
