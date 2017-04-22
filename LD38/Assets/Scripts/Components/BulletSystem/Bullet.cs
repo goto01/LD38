@@ -26,7 +26,7 @@ namespace Assets.Scripts.Components.BulletSystem
             transform.position = new Vector3(position.x, position.y, pos.z);
             _direction = direction;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
         }
 
         protected override void Update()
