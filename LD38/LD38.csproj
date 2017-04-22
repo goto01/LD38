@@ -136,6 +136,7 @@
   <ItemGroup>
     <None Include="Assets\AudioToolkit\Readme.txt" />
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
+    <None Include="Assets\Shaders\ScreenShader.shader" />
     <None Include="Assets\Shaders\Tile wave shader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

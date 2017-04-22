@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Controllers;
+using Assets.Scripts.Core.PropertyAttributes;
 using Assets.Scripts.Core.Staff;
 using Assets.Scripts.Core.Staff.Pool;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Assets.Scripts.Components.BulletSystem
         [SerializeField] private float _delay;
         [SerializeField] private float _speed;
         [SerializeField] private float _time;
+        [Binding(true)] [SerializeField] private Animator _animator;
 
         private Dictionary<float, float> _angle = new Dictionary<float, float>()
         {
@@ -38,6 +40,7 @@ namespace Assets.Scripts.Components.BulletSystem
             _time = Time.time;
             var bullet = PoolsHandlerController.Instance.ShipBullets.Pop<Bullet>();
             bullet.Init(position, dir, _speed);
+            _animator.SetTrigger("Shot");
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Assets.Scripts.Controllers
     {
         [SerializeField] private Pool _explosions;
         [SerializeField] private Pool _sparkleds;
+        [SerializeField] private float _shakeDuration;
+        [SerializeField] private float _shakePower;
         private Coroutine _shakeCoroutine;
         private Camera _camera;
         private Camera Camera { get { return _camera ?? (_camera = Camera.main); } }
@@ -38,9 +40,7 @@ namespace Assets.Scripts.Controllers
         public void Shake()
         {
             StopShake();
-            var durationValue = .3f;
-            var powerValue = .05f;
-            _shakeCoroutine = StartCoroutine(Shake(durationValue, powerValue));
+            _shakeCoroutine = StartCoroutine(Shake(_shakeDuration, _shakePower));
         }
 
         public void StopShake()
