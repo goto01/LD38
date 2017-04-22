@@ -102,6 +102,8 @@
     <Compile Include="Assets\Scripts\Components\BindingExample.cs" />
     <Compile Include="Assets\Scripts\Components\BulletSystem\Bullet.cs" />
     <Compile Include="Assets\Scripts\Components\BulletSystem\BulletSpawner.cs" />
+    <Compile Include="Assets\Scripts\Components\Enteties\Enemies\EnemyBase.cs" />
+    <Compile Include="Assets\Scripts\Components\Enteties\Enemies\SimpleEnemy.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Ship.cs" />
     <Compile Include="Assets\Scripts\Components\Location\Location.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\BaseMovement.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Assets\Scripts\Controllers\CameraSizeController.cs" />
     <Compile Include="Assets\Scripts\Controllers\ControllerExample.cs" />
     <Compile Include="Assets\Scripts\Controllers\EffectController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\GamePlayController.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController\InputController.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController\InputItem.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController\InputItemButton.cs" />
