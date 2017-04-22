@@ -10,6 +10,7 @@ namespace Assets.Scripts.Components.BulletSystem
     {
         [SerializeField] private float _scatter;
         [SerializeField] private float _delay;
+        [SerializeField] private float _speed;
 
         [SerializeField] private float _time;
 
@@ -20,7 +21,7 @@ namespace Assets.Scripts.Components.BulletSystem
             if (!TimeCompleted) return;
             _time = Time.time;
             var bullet = PoolsHandlerController.Instance.ShipBullets.Pop<Bullet>();
-            bullet.Init(position, dir);
+            bullet.Init(position, dir, _speed);
         }
     }
 }

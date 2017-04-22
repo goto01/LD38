@@ -9,5 +9,10 @@ namespace Assets.Scripts.Components.Movement
         {
             get { return InputController.Instance.GetDirection(); }
         }
+
+        protected override void Translate()
+        {
+            _rigidbody2D.AddForce(Offset);
+        }
     }
 }

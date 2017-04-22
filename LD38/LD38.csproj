@@ -131,6 +131,7 @@
     <Compile Include="Assets\Scripts\Core\Staff\Singleton\SingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Singleton\UnitySingleton.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\TransformHelper.cs" />
+    <Compile Include="Assets\Scripts\DisplayFPS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AudioToolkit\Readme.txt" />
