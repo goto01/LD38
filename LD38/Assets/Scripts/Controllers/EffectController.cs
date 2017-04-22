@@ -10,12 +10,25 @@ namespace Assets.Scripts.Controllers
         [SerializeField] private Pool _sparkleds;
         [SerializeField] private float _shakeDuration;
         [SerializeField] private float _shakePower;
+        private int _counter;
         private Coroutine _shakeCoroutine;
         private Camera _camera;
         private Camera Camera { get { return _camera ?? (_camera = Camera.main); } }
 
         public Pool Explosions { get { return _explosions;} }
-        public Pool Sparkles { get { return _sparkleds; } }
+
+        public Pool Sparkles
+        {
+            get
+            {
+                if (_counter ++ == 3)
+                {
+                    _counter = 0;
+                    return _explosions;
+                }
+                return _sparkleds;
+            }
+        }
 
         public override void AwakeSingleton()
         {
