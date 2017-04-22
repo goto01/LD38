@@ -102,6 +102,9 @@
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectCamera.cs" />
     <Compile Include="Assets\PixelPerfect\Scripts\PixelPerfectSprite.cs" />
     <Compile Include="Assets\Scripts\Components\BindingExample.cs" />
+    <Compile Include="Assets\Scripts\Components\BulletSystem\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Components\BulletSystem\BulletSpawner.cs" />
+    <Compile Include="Assets\Scripts\Components\Enteties\Ship.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\BaseMovement.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\Components\PoolExample.cs" />
@@ -109,8 +112,11 @@
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraSizeController.cs" />
     <Compile Include="Assets\Scripts\Controllers\ControllerExample.cs" />
+    <Compile Include="Assets\Scripts\Controllers\EffectController.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController\InputController.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController\InputItem.cs" />
+    <Compile Include="Assets\Scripts\Controllers\InputController\InputItemButton.cs" />
+    <Compile Include="Assets\Scripts\Controllers\PoolsHandlerController.cs" />
     <Compile Include="Assets\Scripts\Core\PropertyAttributes\BindingAttribute.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\BindingMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\Helpers\EventHandlerHelper.cs" />
