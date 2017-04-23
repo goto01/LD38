@@ -8,10 +8,16 @@ namespace Assets.Scripts.Components.Movement
     {
         [SerializeField] protected float _speed;
         [SerializeField] [Binding(true)] protected Rigidbody2D _rigidbody2D;
+        protected float _trueSpeed;
 
         protected abstract Vector2 Direction { get; }
 
         protected Vector2 Offset { get { return Direction * _speed  * Time.deltaTime; } }
+
+        protected virtual void Awake()
+        {
+            _trueSpeed = _speed;
+        }
 
         protected virtual void Update()
         {

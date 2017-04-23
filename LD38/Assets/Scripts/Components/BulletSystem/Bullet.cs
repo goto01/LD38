@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Components.Movement;
+﻿using Assets.Scripts.Components.Enteties;
+using Assets.Scripts.Components.Movement;
 using Assets.Scripts.Controllers;
 using UnityEngine;
 
@@ -34,6 +35,8 @@ namespace Assets.Scripts.Components.BulletSystem
             var @object = Physics2D.Raycast(transform.position, Offset, Offset.magnitude, _layerMask);
             if (@object.collider != null)
             {
+                var entity = @object.collider.GetComponent<IEntity>();
+                if (entity != null) entity.Damage();
                 Collide(@object.point);
             }
             else base.Update();

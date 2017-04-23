@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Components\BulletSystem\BulletSpawner.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Enemies\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Enemies\SimpleEnemy.cs" />
+    <Compile Include="Assets\Scripts\Components\Enteties\IEntity.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Ship.cs" />
     <Compile Include="Assets\Scripts\Components\Level\Grid.cs" />
     <Compile Include="Assets\Scripts\Components\Level\Location.cs" />
@@ -143,6 +144,7 @@
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
     <None Include="Assets\Shaders\Effects\GlowShader.shader" />
     <None Include="Assets\Shaders\ScreenShader.shader" />
+    <None Include="Assets\Shaders\Simple entity shader.shader" />
     <None Include="Assets\Shaders\Tile wave shader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
