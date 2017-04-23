@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Components.BulletSystem;
 using Assets.Scripts.Components.Enteties.Enemies;
 using Assets.Scripts.Controllers;
+using Assets.Scripts.Controllers.EffectController;
 using Assets.Scripts.Controllers.InputController;
 using Assets.Scripts.Core.PropertyAttributes;
 using Assets.Scripts.Core.Staff;

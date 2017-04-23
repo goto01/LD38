@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Components.Enteties;
 using Assets.Scripts.Components.Movement;
 using Assets.Scripts.Controllers;
+using Assets.Scripts.Controllers.EffectController;
 using UnityEngine;
 
 namespace Assets.Scripts.Components.BulletSystem

@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Controllers;
+using Assets.Scripts.Controllers.EffectController;
 using UnityEngine;
 
 namespace Assets.Scripts.Components.Enteties.Enemies

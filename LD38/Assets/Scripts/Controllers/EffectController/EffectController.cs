@@ -2,7 +2,7 @@
 using Assets.Scripts.Core.Staff.Pool;
 using UnityEngine;
 
-namespace Assets.Scripts.Controllers
+namespace Assets.Scripts.Controllers.EffectController
 {
     class EffectController : BaseController<EffectController>
     {
@@ -11,6 +11,7 @@ namespace Assets.Scripts.Controllers
         [SerializeField] private Pool _sparkleds;
         [SerializeField] private float _shakeDuration;
         [SerializeField] private float _shakePower;
+        [SerializeField] private Material _postMaterial;
         private int _counter;
         private Coroutine _shakeCoroutine;
         private Camera _camera;
@@ -34,6 +35,11 @@ namespace Assets.Scripts.Controllers
 
         public override void AwakeSingleton()
         {
+        }
+
+        public void OnRenderImage(RenderTexture src, RenderTexture dest)
+        {
+            Graphics.Blit(src, dest, _postMaterial);
         }
 
         private IEnumerator Shake(float duration, float power)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Assets.Scripts.Components.Movement;
 using Assets.Scripts.Controllers;
+using Assets.Scripts.Controllers.EffectController;
 using Assets.Scripts.Core.PropertyAttributes;
 using UnityEngine;
 

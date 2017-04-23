@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -120,7 +118,8 @@
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraSizeController.cs" />
     <Compile Include="Assets\Scripts\Controllers\ControllerExample.cs" />
-    <Compile Include="Assets\Scripts\Controllers\EffectController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\EffectController\CameraComponent.cs" />
+    <Compile Include="Assets\Scripts\Controllers\EffectController\EffectController.cs" />
     <Compile Include="Assets\Scripts\Controllers\GamePlayController.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController\InputController.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController\InputItem.cs" />
@@ -148,11 +147,10 @@
     <None Include="Assets\AudioToolkit\Readme.txt" />
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
     <None Include="Assets\Shaders\Effects\GlowShader.shader" />
+    <None Include="Assets\Shaders\PostScreenShader.shader" />
     <None Include="Assets\Shaders\ScreenShader.shader" />
+    <None Include="Assets\Shaders\Simple entity shader.shader" />
     <None Include="Assets\Shaders\Tile wave shader.shader" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Scripts\Controllers\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
