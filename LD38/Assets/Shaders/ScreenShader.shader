@@ -67,7 +67,9 @@
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
-				fixed4 c = tex2D(_RenderTexture, IN.texcoord);
+				float2 texcoord = IN.texcoord;
+				texcoord.x += sin(texcoord.y*100 + _Time.x * 50)*.002;
+				fixed4 c = tex2D(_RenderTexture, texcoord);
 				return c;
 			}
 		ENDCG
