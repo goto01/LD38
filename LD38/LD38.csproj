@@ -105,7 +105,9 @@
     <Compile Include="Assets\Scripts\Components\Enteties\Enemies\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Enemies\SimpleEnemy.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Ship.cs" />
-    <Compile Include="Assets\Scripts\Components\Location\Location.cs" />
+    <Compile Include="Assets\Scripts\Components\Level\Grid.cs" />
+    <Compile Include="Assets\Scripts\Components\Level\Location.cs" />
+    <Compile Include="Assets\Scripts\Components\Location\LocationExample.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\BaseMovement.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\Components\PoolExample.cs" />

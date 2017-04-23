@@ -6,7 +6,7 @@ using UnityEditor;
 
 namespace Assets.Scripts.Components.Location
 {
-    class Location : BindingMonoBehaviour
+    class LocationExample : BindingMonoBehaviour
     {
         [SerializeField] private GameObject _borderTile;
         [SerializeField] private int _tileWidth = 18;
@@ -63,10 +63,10 @@ namespace Assets.Scripts.Components.Location
         }
     }
 #if UNITY_EDITOR
-    [CustomEditor(typeof (Location))]
+    [CustomEditor(typeof (LocationExample))]
     class LocationEditor : BindingMonoBehaviourEditor
     {
-        private Location Target { get { return target as Location; } }
+        private LocationExample Target { get { return target as LocationExample; } }
 
         public override void OnInspectorGUI()
         {

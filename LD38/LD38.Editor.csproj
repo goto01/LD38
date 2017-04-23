@@ -118,6 +118,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>Library\ScriptAssemblies\Assembly-CSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="LD38.csproj">
@@ -136,6 +139,11 @@
     <Compile Include="Assets\Scripts\Editor\HierarchyTags\HierarchyTags.cs" />
     <Compile Include="Assets\Scripts\Editor\HierarchyTags\TagsSettings.cs" />
     <Compile Include="Assets\Scripts\Editor\HierarchyTags\TagsSettingsWindow.cs" />
+    <Compile Include="Assets\Scripts\Editor\LevelImporter\Layer.cs" />
+    <Compile Include="Assets\Scripts\Editor\LevelImporter\LevelImporterWindow.cs" />
+    <Compile Include="Assets\Scripts\Editor\LevelImporter\LocationContructor.cs" />
+    <Compile Include="Assets\Scripts\Editor\LevelImporter\Map.cs" />
+    <Compile Include="Assets\Scripts\Editor\LevelImporter\TileDescription\TilesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AudioToolkit\Readme.txt" />
