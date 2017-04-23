@@ -15,6 +15,7 @@ namespace Assets.Scripts.Components.Level
         [SerializeField] private int _tileHeight;
         [SerializeField] private int _width;
         [SerializeField] private int _height;
+        [SerializeField] private DoorHandler _doorHandler;
 
         public Grid Grid { get { return _grid; } }
         public Grid EnemiesGrid { get { return _enemiesGrid; } }
@@ -41,8 +42,21 @@ namespace Assets.Scripts.Components.Level
             _enemiesGrid.Reposit(TileWidth, TileHeight);
         }
 
+        protected virtual void Update()
+        {
+            var _counter = 0;
+            for (var row = 0; row < _height; row++)
+                for (var column = 0; column < _width; column++)
+                {
+                    if (_enemiesGrid.GridData[row].List[column].Transform == null) continue;
+                    if (_enemiesGrid.GridData[row].List[column].Transform.gameObject.activeSelf) _counter ++;
+                }
+            if (_counter == 0) _doorHandler.Open();
+        }
+
         public void Activate()
         {
+            _doorHandler.Close();
             _enemiesGrid.ResetSelf();
             for (var row = 0; row < _height; row ++)
                 for (var column = 0; column < _width; column++)

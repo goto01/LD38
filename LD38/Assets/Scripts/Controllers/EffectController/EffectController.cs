@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Assets.Scripts.Core.Staff.Pool;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Controllers.EffectController
 {
@@ -11,12 +13,14 @@ namespace Assets.Scripts.Controllers.EffectController
         [SerializeField] private Pool _sparkleds;
         [SerializeField] private float _shakeDuration;
         [SerializeField] private float _shakePower;
+        [SerializeField] private float _transitionDuration;
         [SerializeField] private Material _postMaterial;
         private int _counter;
         private Coroutine _shakeCoroutine;
         private Camera _camera;
         private Camera Camera { get { return _camera ?? (_camera = Camera.main); } }
 
+        public float TransitionDuration { get { return _transitionDuration; } }
         public Pool Explosions { get { return _explosions;} }
         public Pool BigExplosions { get { return _bigExplosions;} }
 
@@ -79,5 +83,36 @@ namespace Assets.Scripts.Controllers.EffectController
             }
         }
 
+        private Coroutine _coroutine;
+
+        public void FadeTransition()
+        {
+            if (_coroutine != null) return;
+            _coroutine = StartCoroutine(Fade(_transitionDuration));
+        }
+
+        private IEnumerator Fade(float duration)
+        {
+            yield return StartCoroutine(FadeInCoroutine(duration/2));
+            yield return StartCoroutine(FadeInCoroutine(duration/2, true));
+        }
+
+        private IEnumerator FadeInCoroutine(float duration, bool inverse = false)
+        {
+            var inverseValue = inverse ? 1 : 0;
+            var startTime = Time.time;
+            var finishTime = Time.time + duration;
+            while (Time.time < finishTime)
+            {
+                SetFadePower(Mathf.Abs(inverseValue - Mathf.InverseLerp(startTime, finishTime, Time.time)));
+                yield return null;
+            }
+            SetFadePower(1 - inverseValue);
+        }
+
+        private void SetFadePower(float value)
+        {
+            _postMaterial.SetFloat("_GrayPower", value);
+        }
     }
 } 

@@ -9,8 +9,6 @@ namespace Assets.Scripts.Controllers.EffectController
 
         private void OnRenderImage(RenderTexture src, RenderTexture dest)
         {
-            Debug.Log(gameObject.tag);
-            Debug.Log(name);
             EffectController.Instance.OnRenderImage(src, dest);
         }
     }
