@@ -6,13 +6,20 @@ using UnityEngine;
 namespace Assets.Scripts.Components.Level
 {
     [Serializable]
+    class TransformExt
+    {
+        public Transform Transform;
+        public Vector3 Origin;
+    }
+
+    [Serializable]
     class ListWrapper
     {
-        public List<Transform> List;
+        public List<TransformExt> List;
 
         public ListWrapper()
         {
-            List = new List<Transform>();
+            List = new List<TransformExt>();
         }
     }
 
@@ -37,7 +44,8 @@ namespace Assets.Scripts.Components.Level
 
         public void AddTile(GameObject tile, int row, int column)
         {
-            _grid[row].List[column] = tile.transform;
+            _grid[row].List[column] = new TransformExt();
+            _grid[row].List[column].Transform = tile.transform;
             tile.transform.parent = transform;
         }
 
@@ -50,8 +58,9 @@ namespace Assets.Scripts.Components.Level
                     Vector3 pos = startPos + new Vector2(column*tileWidth, -row*tileHeight);
                     var tile = _grid[row].List[column];
                     if (tile == null) continue;
-                    pos.z = tile.transform.position.z;
-                    tile.position = pos;
+                    pos.z = tile.Transform.position.z;
+                    tile.Origin = pos;
+                    tile.Transform.position = pos;
                 }
         }
     }

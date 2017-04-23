@@ -38,8 +38,9 @@ namespace Assets.Scripts.Editor.LevelImporter
                         var data = ReadJson(DragAndDrop.paths[0]);
                         var map = JsonUtility.FromJson<Map>(data);
                         var layer = map.Layers[0];
+                        var enemyLayer = map.Layers[1];
                         var contructor = new LocationContructor(_location);
-                        contructor.GenerateLocation(layer.Width, layer.Height, layer.Data);
+                        contructor.GenerateLocation(layer.Width, layer.Height, layer.Data, enemyLayer.Data);
                         _message = string.Format("Map importer with size : width {0}, height {1}", layer.Width,
                             layer.Height);
                     }

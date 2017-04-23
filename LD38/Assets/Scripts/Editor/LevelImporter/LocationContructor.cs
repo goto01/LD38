@@ -10,19 +10,22 @@ namespace Assets.Scripts.Editor.LevelImporter
         private const string DefaultName = "Location default name";
         private readonly Location _locationPrefab;
         private TilesRepository _tilesRepository;
+        private TilesRepository _enemiesRepository;
 
         public LocationContructor(Location defaultLocation)
         {
             _locationPrefab = defaultLocation;
         }
 
-        public void GenerateLocation(int width, int height, int[] map)
+        public void GenerateLocation(int width, int height, int[] map, int[] enemies)
         {
             _tilesRepository = EditorGUIUtility.Load("Tiles repository.asset") as TilesRepository;
+            _enemiesRepository = EditorGUIUtility.Load("Enemies repository.asset") as TilesRepository;
             var location = Object.Instantiate(_locationPrefab.gameObject).GetComponent<Location>();
             location.name = DefaultName;
             location.Init(width, height);
             GenerateGrid(location.Grid, width, height, map);
+            GenerateEnemies(location, width, height, enemies);
             location.Reposit();
         }
 
@@ -37,6 +40,20 @@ namespace Assets.Scripts.Editor.LevelImporter
                     var tile = Object.Instantiate(_tilesRepository.GetTile(id));
                     grid.AddTile(tile.gameObject, row, column);
                 }
+        }
+
+
+        private void GenerateEnemies(Location location, int width, int height, int[] enemies)
+        {
+            for (var index = 0; index < enemies.Length; index++)
+            {
+                if (enemies[index] ==0 ) continue;
+                var row = index/width;
+                var column = index%width;
+                Debug.Log(_enemiesRepository.GetTile(enemies[index]));
+                var enemy = Object.Instantiate(_enemiesRepository.GetTile(enemies[index]));
+                location.EnemiesGrid.AddTile(enemy.gameObject, row, column);
+            }
         }
     }
 }
