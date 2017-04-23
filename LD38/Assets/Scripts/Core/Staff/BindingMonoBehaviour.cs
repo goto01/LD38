@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using Assets.Scripts.Core.PropertyAttributes;
 using Assets.Scripts.Core.Staff.Helpers;
-using UnityEditor;
 using UnityEngine;
 #if UNITY_EDITOR
-
+using UnityEditor;
 #endif
 
 namespace Assets.Scripts.Core.Staff

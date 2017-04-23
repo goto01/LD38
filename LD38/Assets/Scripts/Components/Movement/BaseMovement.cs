@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Core.PropertyAttributes;
 using Assets.Scripts.Core.Staff;
-using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.Components.Movement
