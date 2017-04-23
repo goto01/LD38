@@ -1,5 +1,9 @@
-﻿using Assets.Scripts.Core.Staff;
+﻿using Assets.Scripts.Components.Enteties.Enemies;
+using Assets.Scripts.Core.Staff;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Assets.Scripts.Components.Level
 {
@@ -18,16 +22,45 @@ namespace Assets.Scripts.Components.Level
         private float TileWidth { get { return _tileWidth*.03125f; } }
         private float TileHeight { get { return _tileHeight*.03125f; } }
 
+        protected virtual void Awake()
+        {
+            Activate();
+        }
+
         public void Init(int width, int height)
         {
+            _width = width;
+            _height = height;
             _grid.Init(width, height);
             _enemiesGrid.Init(width, height);
         }
 
         public void Reposit()
         {
-            _grid.Reposit(_tileWidth * 0.03125f, _tileHeight * 0.03125f);
-            _enemiesGrid.Reposit(_tileWidth * 0.03125f, _tileHeight * 0.03125f);
+            _grid.Reposit(TileWidth, TileHeight);
+            _enemiesGrid.Reposit(TileWidth, TileHeight);
+        }
+
+        public void Activate()
+        {
+            _enemiesGrid.ResetSelf();
+            for (var row = 0; row < _height; row ++)
+                for (var column = 0; column < _width; column++)
+                {
+                    if (_enemiesGrid.GridData[row].List[column].Transform == null) continue;
+                    _enemiesGrid.GridData[row].List[column].Transform.GetComponent<EnemyBase>().Activate();
+                }
         }
     }
+#if UNITY_EDITOR
+    [CustomEditor(typeof (Location))]
+    class LocationEditor : BindingMonoBehaviourEditor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            if (GUILayout.Button("Activate")) (target as Location).Activate();
+        }
+    }
+#endif
 }

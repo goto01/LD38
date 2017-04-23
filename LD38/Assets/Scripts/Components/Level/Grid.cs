@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Components.Enteties.Enemies;
 using Assets.Scripts.Core.Staff;
 using UnityEngine;
 
 namespace Assets.Scripts.Components.Level
 {
     [Serializable]
-    class TransformExt
+    public class TransformExt
     {
         public Transform Transform;
         public Vector3 Origin;
     }
 
     [Serializable]
-    class ListWrapper
+    public class ListWrapper
     {
         public List<TransformExt> List;
 
@@ -28,6 +29,8 @@ namespace Assets.Scripts.Components.Level
         [SerializeField] private List<ListWrapper> _grid;
         [SerializeField] private int _width;
         [SerializeField] private int _height;
+
+        public List<ListWrapper> GridData { get { return _grid; } } 
         
         public void Init(int width, int height)
         {
@@ -57,11 +60,22 @@ namespace Assets.Scripts.Components.Level
                 {
                     Vector3 pos = startPos + new Vector2(column*tileWidth, -row*tileHeight);
                     var tile = _grid[row].List[column];
-                    if (tile == null) continue;
+                    if (tile == null || tile.Transform == null) continue;
                     pos.z = tile.Transform.position.z;
                     tile.Origin = pos;
                     tile.Transform.position = pos;
                 }
         }
+
+        public void ResetSelf()
+        {
+            for (var row = 0; row < _height; row++)
+                for (var column = 0; column < _width; column++)
+                {
+                    var tile = _grid[row].List[column];
+                    if (tile.Transform == null) continue;
+                    tile.Transform.position = new Vector3(tile.Origin.x, tile.Origin.y, tile.Transform.transform.position.z);
+                }
+    }
     }
 }

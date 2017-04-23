@@ -14,6 +14,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
         [Binding(true)] [SerializeField] protected Animator _animator;
         [SerializeField] private int _lifes;
         [SerializeField] private int _currentLife;
+        [SerializeField] private bool _activated = false;
 
         protected override void Awake()
         {
@@ -21,8 +22,14 @@ namespace Assets.Scripts.Components.Enteties.Enemies
             _currentLife = _lifes;
         }
 
+        protected override void Translate()
+        {
+            if (_activated) base.Translate();
+        }
+
         public void Damage()
         {
+            if (!_activated) return;
             if (--_currentLife == 0)
             {
                 _currentLife = _lifes;
@@ -37,6 +44,12 @@ namespace Assets.Scripts.Components.Enteties.Enemies
             _speed = _trueSpeed * GamePlayController.Instance.EnemyStop;
             StopAllCoroutines();
             Call(() => _speed = _trueSpeed, GamePlayController.Instance.EnemyStopDuration);
+        }
+
+        public void Activate()
+        {
+            _activated = true;
+            gameObject.SetActive(true);
         }
     }
 }

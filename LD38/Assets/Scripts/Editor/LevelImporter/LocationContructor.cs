@@ -52,6 +52,8 @@ namespace Assets.Scripts.Editor.LevelImporter
                 var column = index%width;
                 Debug.Log(_enemiesRepository.GetTile(enemies[index]));
                 var enemy = Object.Instantiate(_enemiesRepository.GetTile(enemies[index]));
+                Debug.Log(row);
+                Debug.Log(column);
                 location.EnemiesGrid.AddTile(enemy.gameObject, row, column);
             }
         }
