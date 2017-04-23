@@ -3,6 +3,7 @@
 	Properties
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
+		_GlowTex ("Glow texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
 		_GlowPower ("Glow", range(0, 3)) = 0
 	}
@@ -61,14 +62,15 @@
 			}
 
 			sampler2D _MainTex;
-			sampler2D _AlphaTex;
+			sampler2D _GlowTex;
 			float _GlowPower;
 			float _AlphaSplitEnabled;
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
 				fixed4 c = tex2D(_MainTex, IN.texcoord);
-				c.rgb *= (sin(_Time.x*50) + 1)/2+1;
+				c.rgb *= 1 + tex2D(_GlowTex, IN.texcoord).a * ((sin(_Time.x*50) + 1)/2+1 );
+				c.rgb *= IN.color;
 				c.rgb *= c.a;
 				return c;
 			}

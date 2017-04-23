@@ -7,6 +7,7 @@ namespace Assets.Scripts.Controllers
     class EffectController : BaseController<EffectController>
     {
         [SerializeField] private Pool _explosions;
+        [SerializeField] private Pool _bigExplosions;
         [SerializeField] private Pool _sparkleds;
         [SerializeField] private float _shakeDuration;
         [SerializeField] private float _shakePower;
@@ -16,6 +17,7 @@ namespace Assets.Scripts.Controllers
         private Camera Camera { get { return _camera ?? (_camera = Camera.main); } }
 
         public Pool Explosions { get { return _explosions;} }
+        public Pool BigExplosions { get { return _bigExplosions;} }
 
         public Pool Sparkles
         {

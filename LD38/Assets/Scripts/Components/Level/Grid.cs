@@ -43,11 +43,11 @@ namespace Assets.Scripts.Components.Level
 
         public void Reposit(float tileWidth, float tileHeight)
         {
-            var startPos = new Vector2((-_width/2 + .5f) * tileWidth, (-_height/2 + .5f)*tileHeight);
+            var startPos = new Vector2((-_width/2 + .5f) * tileWidth, (_height/2 - .5f)*tileHeight);
             for (var row = 0; row < _height; row++)
                 for (var column = 0; column < _width; column++)
                 {
-                    Vector3 pos = startPos + new Vector2(column*tileWidth, row*tileHeight);
+                    Vector3 pos = startPos + new Vector2(column*tileWidth, -row*tileHeight);
                     var tile = _grid[row].List[column];
                     if (tile == null) continue;
                     pos.z = tile.transform.position.z;
