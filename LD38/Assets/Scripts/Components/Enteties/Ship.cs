@@ -19,8 +19,14 @@ namespace Assets.Scripts.Components.Enteties
 
         private bool TimeToMakeShot { get { return InputController.Instance.Shot; } }
 
+        protected virtual void Start()
+        {
+            ResetSelf();
+        }
+
         protected virtual void Update()
         {
+            UIController.Instance.ShipHealth = _currentHealth;
             if (TimeToMakeShot) MakeShot();
             var pos = (Vector3)InputController.Instance.GetDirectionToPointer(transform.position);
             var angle = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
@@ -44,6 +50,11 @@ namespace Assets.Scripts.Components.Enteties
         private void DamageAnimator()
         {
             _animator.SetTrigger(DamageTrigger);
+        }
+
+        public void ResetSelf()
+        {
+            _currentHealth = _health;
         }
     }
 }

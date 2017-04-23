@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -124,6 +126,7 @@
     <Compile Include="Assets\Scripts\Controllers\InputController\InputItem.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController\InputItemButton.cs" />
     <Compile Include="Assets\Scripts\Controllers\PoolsHandlerController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\UIController.cs" />
     <Compile Include="Assets\Scripts\Core\PropertyAttributes\BindingAttribute.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\BindingMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Staff\EffectorStaff\SpriteHelper.cs" />
@@ -146,8 +149,10 @@
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
     <None Include="Assets\Shaders\Effects\GlowShader.shader" />
     <None Include="Assets\Shaders\ScreenShader.shader" />
-    <None Include="Assets\Shaders\Simple entity shader.shader" />
     <None Include="Assets\Shaders\Tile wave shader.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Scripts\Controllers\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
