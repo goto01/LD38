@@ -4,6 +4,7 @@
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_GlowTex ("Glow texture", 2D) = "white" {}
+		_BloodTex ("Blood texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
 		_GlowPower ("Glow", range(0, 3)) = 0
 	}
@@ -63,14 +64,19 @@
 
 			sampler2D _MainTex;
 			sampler2D _GlowTex;
+			sampler2D _BloodTex;
 			float _GlowPower;
 			float _AlphaSplitEnabled;
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
-				fixed4 c = tex2D(_MainTex, IN.texcoord);
-				c.rgb *= 1 + tex2D(_GlowTex, IN.texcoord).a * ((sin(_Time.x*50) + 1)/2+1 );
+				float2 texcoord = IN.texcoord;
+				texcoord.x += sin(texcoord.y*50 + _Time.x * 70)*.01;
+				fixed4 c = tex2D(_MainTex, texcoord);
+				float alfa = tex2D(_GlowTex, texcoord).a;
+				c.rgb *= 1 + alfa * ((sin(_Time.x*50) + 1)/2+1 );
 				c.rgb *= IN.color;
+				c.rgb += tex2D(_BloodTex, (texcoord + _Time.x)%1).rgb/50 * alfa;
 				c.rgb *= c.a;
 				return c;
 			}

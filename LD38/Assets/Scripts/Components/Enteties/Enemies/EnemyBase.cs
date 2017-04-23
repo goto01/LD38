@@ -32,12 +32,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
             if (!_activated) return;
             if (--_currentLife == 0)
             {
-                _currentLife = _lifes;
-                gameObject.SetActive(false);
-                var explosion = EffectController.Instance.BigExplosions.Pop();
-                explosion.transform.position = new Vector3(transform.position.x, transform.position.y,
-                    explosion.transform.position.z);
-                _speed = _trueSpeed;
+                Die();
                 return;
             }
             _animator.SetTrigger(DamageTrigger);
@@ -50,6 +45,17 @@ namespace Assets.Scripts.Components.Enteties.Enemies
         {
             _activated = true;
             gameObject.SetActive(true);
+        }
+
+        protected virtual void Die()
+        {
+            _currentLife = _lifes;
+            gameObject.SetActive(false);
+            var explosion = EffectController.Instance.BigExplosions.Pop();
+            EffectController.Instance.BigShake();
+            explosion.transform.position = new Vector3(transform.position.x, transform.position.y,
+                explosion.transform.position.z);
+            _speed = _trueSpeed;
         }
     }
 }

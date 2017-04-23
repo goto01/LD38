@@ -1,5 +1,8 @@
 ﻿using Assets.Scripts.Components.BulletSystem;
+using Assets.Scripts.Components.Enteties.Enemies;
+using Assets.Scripts.Controllers;
 using Assets.Scripts.Controllers.InputController;
+using Assets.Scripts.Core.PropertyAttributes;
 using Assets.Scripts.Core.Staff;
 using UnityEngine;
 
@@ -7,7 +10,12 @@ namespace Assets.Scripts.Components.Enteties
 {
     class Ship : BindingMonoBehaviour
     {
+        private readonly int DamageTrigger = Animator.StringToHash("Damage");
+
+        [SerializeField] private int _health;
+        [SerializeField] private int _currentHealth;
         [SerializeField] private BulletSpawner _bulletSpawner;
+        [SerializeField] [Binding(true)] private Animator _animator;
 
         private bool TimeToMakeShot { get { return InputController.Instance.Shot; } }
 
@@ -23,6 +31,19 @@ namespace Assets.Scripts.Components.Enteties
         private void MakeShot()
         {
             _bulletSpawner.Spawn(transform.position, InputController.Instance.GetDirectionToPointer(transform.position));
+        }
+
+        protected virtual void OnCollisionEnter2D(Collision2D other)
+        {
+            if (!other.collider.tag.Equals(EnemyBase.Tag)) return;
+            EffectController.Instance.BigShake();
+            _currentHealth--;
+            DamageAnimator();
+        }
+
+        private void DamageAnimator()
+        {
+            _animator.SetTrigger(DamageTrigger);
         }
     }
 }

@@ -58,6 +58,12 @@ namespace Assets.Scripts.Controllers
             _shakeCoroutine = StartCoroutine(Shake(_shakeDuration, _shakePower));
         }
 
+        public void BigShake()
+        {
+            StopShake();
+            _shakeCoroutine = StartCoroutine(Shake(_shakeDuration, _shakePower * 1.5f));
+        }
+
         public void StopShake()
         {
             if (_shakeCoroutine != null)
