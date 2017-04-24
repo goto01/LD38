@@ -97,11 +97,12 @@ namespace Assets.Scripts.Controllers.EffectController
             yield return StartCoroutine(FadeInCoroutine(duration/2));
             yield return new WaitForSeconds(duration/2);
             yield return StartCoroutine(FadeInCoroutine(duration/2, true));
+            _coroutine = null;
         }
 
         private IEnumerator FadeInCoroutine(float duration, bool inverse = false)
         {
-            var inverseValue = inverse ? 1 : 0;
+            var inverseValue = inverse ? 1.1f : -.1f;
             var startTime = Time.time;
             var finishTime = Time.time + duration;
             while (Time.time < finishTime)
@@ -109,7 +110,7 @@ namespace Assets.Scripts.Controllers.EffectController
                 SetFadePower(Mathf.Abs(inverseValue - Mathf.InverseLerp(startTime, finishTime, Time.time)));
                 yield return null;
             }
-            SetFadePower(1 - inverseValue);
+            SetFadePower(1.1f - inverseValue);
         }
 
         private void SetFadePower(float value)

@@ -29,7 +29,9 @@ namespace Assets.Scripts.Components.Level
         [SerializeField] private List<ListWrapper> _grid;
         [SerializeField] private int _width;
         [SerializeField] private int _height;
+        [SerializeField] private List<Transform> _cash; 
 
+        public List<Transform> Cash { get { return _cash; } } 
         public List<ListWrapper> GridData { get { return _grid; } } 
         
         public void Init(int width, int height)
@@ -43,6 +45,11 @@ namespace Assets.Scripts.Components.Level
                 for (var column = 0; column < width; column++) line.List.Add(null);
                 _grid.Add(line);
             }
+        }
+
+        public void AppendTile(GameObject tile)
+        {
+            _cash.Add(tile.transform);
         }
 
         public virtual void AddTile(GameObject tile, int row, int column)

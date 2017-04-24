@@ -18,6 +18,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
                     transform.position.y + Random.Range(-.1f, .1f),
                     enemy.transform.position.z);
                 enemy.transform.position = pos;
+                LocationController.Instance.CurrentLocation.EnemiesGrid.AppendTile(enemy.gameObject);
                 var ex = EffectController.Instance.Explosions.Pop();
                 ex.transform.position = new Vector3(pos.x, pos.y, ex.transform.position.z);
             }

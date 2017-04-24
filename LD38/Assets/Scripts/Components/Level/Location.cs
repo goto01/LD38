@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Components.Enteties.Enemies;
+﻿using System.Linq;
+using Assets.Scripts.Components.Enteties.Enemies;
 using Assets.Scripts.Core.Staff;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -26,7 +27,7 @@ namespace Assets.Scripts.Components.Level
 
         protected virtual void Awake()
         {
-            Activate();
+            _doorHandler.Close();
         }
 
         public void Init(int width, int height)
@@ -54,6 +55,7 @@ namespace Assets.Scripts.Components.Level
                     if (_enemiesGrid.GridData[row].List[column].Transform == null) continue;
                     if (_enemiesGrid.GridData[row].List[column].Transform.gameObject.activeSelf) _counter ++;
                 }
+            if (_enemiesGrid.Cash.Any(x=>x.gameObject.activeSelf)) return;
             if (_counter == 0) _doorHandler.Open();
         }
 
@@ -67,6 +69,11 @@ namespace Assets.Scripts.Components.Level
                     if (_enemiesGrid.GridData[row].List[column].Transform == null) continue;
                     _enemiesGrid.GridData[row].List[column].Transform.GetComponent<EnemyBase>().Activate();
                 }
+        }
+
+        public void HandleDoor(Door.DoorType type, Transform ship)
+        {
+            _doorHandler.Doors.Single(x=>x.Type.Equals(type)).HandleEnterShip(ship);
         }
     }
 #if UNITY_EDITOR
