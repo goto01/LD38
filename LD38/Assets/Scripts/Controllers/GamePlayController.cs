@@ -23,5 +23,21 @@ namespace Assets.Scripts.Controllers
         {
             
         }
+
+        protected virtual void Update()
+        {
+            if (_ship.CurrentHealth == 0)
+            {
+                PoolsHandlerController.Instance.ResetSelf();
+                InputController.InputController.Instance.Disable();
+                var ex = EffectController.EffectController.Instance.BigExplosions.Pop();
+                ex.transform.position = new Vector3(_ship.transform.position.x, 
+                    _ship.transform.position.y,
+                    ex.transform.position.z);
+                EffectController.EffectController.Instance.FadeTransition();
+                LocationController.Instance.ResetSelf();
+                _ship.ResetSelf();
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
         public void Damage()
         {
             if (!_activated) return;
-            if (--_currentLife == 0)
+            if ((_currentLife-=2) <= 0)
             {
                 Die();
                 return;

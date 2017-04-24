@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Core.Staff.Pool
@@ -9,6 +10,7 @@ namespace Assets.Scripts.Core.Staff.Pool
         [SerializeField] private PoolableItem _source;
         [SerializeField] private int _number = 20;
         [SerializeField] private List<PoolableItem> _items;
+        [SerializeField] private List<PoolableItem> _cash; 
 
         protected virtual void Awake()
         {
@@ -33,6 +35,7 @@ namespace Assets.Scripts.Core.Staff.Pool
             _items.RemoveAt(0);
             item.gameObject.SetActive(true);
             item.Disable += ItemOnDisable;
+            _cash.Add(item);
             return item;
         }
 
@@ -40,7 +43,16 @@ namespace Assets.Scripts.Core.Staff.Pool
         {
             var item = sender as PoolableItem;
             item.Disable -= ItemOnDisable;
+            _cash.Remove(item);
             _items.Add(item);
+        }
+
+        public void ResetSelf()
+        {
+            for (var index = 0; _cash.Any(); index++)
+            {
+                _cash[0].gameObject.SetActive(false);
+            } 
         }
     }
 }

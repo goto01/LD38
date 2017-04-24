@@ -117,6 +117,9 @@
     <Compile Include="Assets\Scripts\Components\Location\LocationExample.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\BaseMovement.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\Components\MusicComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\PlayOnce.cs" />
+    <Compile Include="Assets\Scripts\Components\PlayOnceEnd.cs" />
     <Compile Include="Assets\Scripts\Components\PoolExample.cs" />
     <Compile Include="Assets\Scripts\Components\SingletonExample.cs" />
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
@@ -129,6 +132,7 @@
     <Compile Include="Assets\Scripts\Controllers\InputController\InputItem.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController\InputItemButton.cs" />
     <Compile Include="Assets\Scripts\Controllers\LocationController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\MusicController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PoolsHandlerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\UIController.cs" />
     <Compile Include="Assets\Scripts\Core\PropertyAttributes\BindingAttribute.cs" />

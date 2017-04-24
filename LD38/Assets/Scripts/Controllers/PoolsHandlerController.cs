@@ -19,5 +19,11 @@ namespace Assets.Scripts.Controllers
         public override void AwakeSingleton()
         {
         }
+
+        public void ResetSelf()
+        {
+            _middleBlobPool.ResetSelf();
+            _smallBlobPool.ResetSelf();
+        }
     }
 }

@@ -12,13 +12,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
         [SerializeField] private float _bulletSpeed;
 
         private Coroutine _coroutine;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            Activate();
-        }
-
+        
         public override void Activate()
         {
             base.Activate();
@@ -27,7 +21,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
 
         protected virtual void OnDisable()
         {
-            StopAllCoroutines();
+            StopCoroutine(_coroutine);
         }
 
         public void SpawnBullet()

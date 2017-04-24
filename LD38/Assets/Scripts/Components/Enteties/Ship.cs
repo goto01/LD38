@@ -20,11 +20,20 @@ namespace Assets.Scripts.Components.Enteties
         [SerializeField] private int _currentHealth;
         [SerializeField] private BulletSpawner _bulletSpawner;
         [SerializeField] [Binding(true)] private Animator _animator;
+        private bool _damageEnable = true;
+        private Vector3 _origin;
 
         private bool TimeToMakeShot { get { return InputController.Instance.Shot; } }
+        public int CurrentHealth { get { return _currentHealth; } }
+
+        protected virtual void OnEnable()
+        {
+            _damageEnable = true;
+        }
 
         protected virtual void Start()
         {
+            _origin = transform.position;
             ResetSelf();
         }
 
@@ -46,13 +55,15 @@ namespace Assets.Scripts.Components.Enteties
 
         protected virtual void OnCollisionEnter2D(Collision2D other)
         {
-            Debug.Log(other.collider.name);
             if (!other.collider.tag.Equals(EnemyBase.Tag) && !other.collider.tag.Equals(EemyBullet.Tag)) return;
             Damage();
         }
 
         public void Damage()
         {
+            if (!_damageEnable) return;
+            _damageEnable = false;
+            Call(() => _damageEnable = true, .5f);
             EffectController.Instance.BigShake();
             var ex = EffectController.Instance.BigExplosions.Pop();
             ex.transform.position = new Vector3(transform.position.x, transform.position.y, ex.transform.position.z);
@@ -68,6 +79,12 @@ namespace Assets.Scripts.Components.Enteties
         public void ResetSelf()
         {
             _currentHealth = _health;
+            transform.position = _origin;
+        }
+
+        public void IncHealth()
+        {
+            _currentHealth = Mathf.Clamp(++_currentHealth, 0, _health);
         }
     }
 }
