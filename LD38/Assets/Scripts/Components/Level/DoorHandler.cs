@@ -5,11 +5,17 @@ using UnityEngine;
 
 namespace Assets.Scripts.Components.Level
 {
-    class DoorHandler : BindingMonoBehaviour
+    class DoorHandler : Grid
     {
         [SerializeField] private List<Door> _doors;
 
         public List<Door> Doors { get { return _doors; } }
+
+        public override void AddTile(GameObject tile, int row, int column)
+        {
+            _doors.Add(tile.GetComponent<Door>());
+            base.AddTile(tile, row, column);
+        }
 
         public void Close()
         {

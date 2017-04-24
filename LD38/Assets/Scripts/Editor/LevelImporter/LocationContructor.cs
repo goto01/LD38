@@ -11,21 +11,24 @@ namespace Assets.Scripts.Editor.LevelImporter
         private readonly Location _locationPrefab;
         private TilesRepository _tilesRepository;
         private TilesRepository _enemiesRepository;
+        private TilesRepository _doorsRepository;
 
         public LocationContructor(Location defaultLocation)
         {
             _locationPrefab = defaultLocation;
         }
 
-        public void GenerateLocation(int width, int height, int[] map, int[] enemies)
+        public void GenerateLocation(int width, int height, int[] map, int[] enemies, int[] doors)
         {
             _tilesRepository = EditorGUIUtility.Load("Tiles repository.asset") as TilesRepository;
             _enemiesRepository = EditorGUIUtility.Load("Enemies repository.asset") as TilesRepository;
+            _doorsRepository = EditorGUIUtility.Load("Doors repository.asset") as TilesRepository;
             var location = Object.Instantiate(_locationPrefab.gameObject).GetComponent<Location>();
             location.name = DefaultName;
             location.Init(width, height);
             GenerateGrid(location.Grid, width, height, map);
             GenerateEnemies(location, width, height, enemies);
+            GenerateDoors(location, width, height, doors);
             location.Reposit();
         }
 
@@ -50,11 +53,20 @@ namespace Assets.Scripts.Editor.LevelImporter
                 if (enemies[index] ==0 ) continue;
                 var row = index/width;
                 var column = index%width;
-                Debug.Log(_enemiesRepository.GetTile(enemies[index]));
                 var enemy = Object.Instantiate(_enemiesRepository.GetTile(enemies[index]));
-                Debug.Log(row);
-                Debug.Log(column);
                 location.EnemiesGrid.AddTile(enemy.gameObject, row, column);
+            }
+        }
+
+        private void GenerateDoors(Location location, int width, int height, int[] doors)
+        {
+            for (var index = 0; index < doors.Length; index++)
+            {
+                if (doors[index] == 0) continue;
+                var row = index / width;
+                var column = index % width;
+                var door = Object.Instantiate(_doorsRepository.GetTile(doors[index]));
+                location.DoorsHandler.AddTile(door.gameObject, row, column);
             }
         }
     }

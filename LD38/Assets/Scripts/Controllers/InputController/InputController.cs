@@ -10,6 +10,7 @@ namespace Assets.Scripts.Controllers.InputController
         [SerializeField] private bool _disable = false;
 
         public bool Shot { get { return _disable ? false : _shotButton.State; } }
+        public bool Disabled { get { return _disable; } }
 
         public override void AwakeSingleton()
         {

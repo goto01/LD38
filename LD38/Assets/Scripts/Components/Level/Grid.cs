@@ -45,7 +45,7 @@ namespace Assets.Scripts.Components.Level
             }
         }
 
-        public void AddTile(GameObject tile, int row, int column)
+        public virtual void AddTile(GameObject tile, int row, int column)
         {
             _grid[row].List[column] = new TransformExt();
             _grid[row].List[column].Transform = tile.transform;

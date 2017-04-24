@@ -19,6 +19,7 @@ namespace Assets.Scripts.Components.Level
 
         public Grid Grid { get { return _grid; } }
         public Grid EnemiesGrid { get { return _enemiesGrid; } }
+        public Grid DoorsHandler { get { return _doorHandler; } }
 
         private float TileWidth { get { return _tileWidth*.03125f; } }
         private float TileHeight { get { return _tileHeight*.03125f; } }
@@ -34,12 +35,14 @@ namespace Assets.Scripts.Components.Level
             _height = height;
             _grid.Init(width, height);
             _enemiesGrid.Init(width, height);
+            _doorHandler.Init(width, height);
         }
 
         public void Reposit()
         {
             _grid.Reposit(TileWidth, TileHeight);
             _enemiesGrid.Reposit(TileWidth, TileHeight);
+            _doorHandler.Reposit(TileWidth, TileHeight);
         }
 
         protected virtual void Update()

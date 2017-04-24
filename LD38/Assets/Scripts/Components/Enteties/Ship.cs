@@ -12,6 +12,7 @@ namespace Assets.Scripts.Components.Enteties
     class Ship : BindingMonoBehaviour
     {
         private readonly int DamageTrigger = Animator.StringToHash("Damage");
+        private readonly int InputDisabled = Animator.StringToHash("Input disabled");
 
         [SerializeField] private int _health;
         [SerializeField] private int _currentHealth;
@@ -27,6 +28,7 @@ namespace Assets.Scripts.Components.Enteties
 
         protected virtual void Update()
         {
+            _animator.SetBool(InputDisabled, InputController.Instance.Disabled);
             UIController.Instance.ShipHealth = _currentHealth;
             if (TimeToMakeShot) MakeShot();
             var pos = (Vector3)InputController.Instance.GetDirectionToPointer(transform.position);

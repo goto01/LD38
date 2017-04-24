@@ -20,7 +20,7 @@ namespace Assets.Scripts.Controllers.EffectController
         private Camera _camera;
         private Camera Camera { get { return _camera ?? (_camera = Camera.main); } }
 
-        public float TransitionDuration { get { return _transitionDuration; } }
+        public float TransitionDuration { get { return _transitionDuration;} }
         public Pool Explosions { get { return _explosions;} }
         public Pool BigExplosions { get { return _bigExplosions;} }
 
@@ -39,6 +39,7 @@ namespace Assets.Scripts.Controllers.EffectController
 
         public override void AwakeSingleton()
         {
+            _postMaterial.SetFloat("_GrayPower", 0);
         }
 
         public void OnRenderImage(RenderTexture src, RenderTexture dest)
@@ -94,6 +95,7 @@ namespace Assets.Scripts.Controllers.EffectController
         private IEnumerator Fade(float duration)
         {
             yield return StartCoroutine(FadeInCoroutine(duration/2));
+            yield return new WaitForSeconds(duration/2);
             yield return StartCoroutine(FadeInCoroutine(duration/2, true));
         }
 

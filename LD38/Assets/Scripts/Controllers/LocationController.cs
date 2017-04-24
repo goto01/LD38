@@ -22,7 +22,7 @@ namespace Assets.Scripts.Controllers
 
         private IEnumerator Transit(float duration, Location location)
         {
-            yield return new WaitForSeconds(duration/2);
+            yield return new WaitForSeconds(duration);
             _currentLocation.gameObject.SetActive(false);
             _currentLocation = Instantiate(location);
             InputController.InputController.Instance.Enable();
