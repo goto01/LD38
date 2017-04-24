@@ -17,7 +17,9 @@ namespace Assets.Scripts.Components.Level
         [SerializeField] private int _width;
         [SerializeField] private int _height;
         [SerializeField] private DoorHandler _doorHandler;
+        [SerializeField] private int _id;
 
+        public int Id { get { return _id; } }
         public Grid Grid { get { return _grid; } }
         public Grid EnemiesGrid { get { return _enemiesGrid; } }
         public Grid DoorsHandler { get { return _doorHandler; } }

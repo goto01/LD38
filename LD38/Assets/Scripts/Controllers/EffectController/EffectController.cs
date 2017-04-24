@@ -81,6 +81,7 @@ namespace Assets.Scripts.Controllers.EffectController
             {
                 StopCoroutine(_shakeCoroutine);
                 _shakeCoroutine = null;
+                Camera.main.transform.position = new Vector3(0, 0, Camera.main.transform.position.z);
             }
         }
 

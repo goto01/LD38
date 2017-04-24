@@ -18,7 +18,6 @@ namespace Assets.Scripts.Controllers
         public void SwitchToLocation(Location location, Door.DoorType doortype, Transform ship)
         {
             InputController.InputController.Instance.Disable();
-            Debug.Log("fade");
             EffectController.EffectController.Instance.FadeTransition();
             var duration = EffectController.EffectController.Instance.TransitionDuration;
             var type = (Door.DoorType)(-(int) doortype);
