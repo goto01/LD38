@@ -39,7 +39,8 @@ namespace Assets.Scripts.Controllers.EffectController
 
         public override void AwakeSingleton()
         {
-            _postMaterial.SetFloat("_GrayPower", 0);
+            _postMaterial.SetFloat("_GrayPower", 1  );
+            StartCoroutine(FadeInCoroutine(_transitionDuration / 2, true))  ;
         }
 
         public void OnRenderImage(RenderTexture src, RenderTexture dest)
@@ -117,6 +118,12 @@ namespace Assets.Scripts.Controllers.EffectController
         private void SetFadePower(float value)
         {
             _postMaterial.SetFloat("_GrayPower", value);
+        }
+
+        public void FadeIn()
+        {
+            _postMaterial.SetFloat("_GrayPower", 0);
+            StartCoroutine(FadeInCoroutine(_transitionDuration/2));
         }
     }
 } 
