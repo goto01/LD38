@@ -2,6 +2,7 @@
 using Assets.Scripts.Components.Movement;
 using Assets.Scripts.Controllers;
 using Assets.Scripts.Controllers.EffectController;
+using Assets.Scripts.Core.PropertyAttributes;
 using UnityEngine;
 
 namespace Assets.Scripts.Components.BulletSystem
@@ -15,6 +16,7 @@ namespace Assets.Scripts.Components.BulletSystem
     {
         [SerializeField] private Vector2 _direction;
         [SerializeField] private LayerMask _layerMask;
+        [SerializeField] [Binding(true)] protected CircleCollider2D _circleCollider2D;
 
         protected override Vector2 Direction
         {
@@ -33,17 +35,18 @@ namespace Assets.Scripts.Components.BulletSystem
 
         protected override void Update()
         {
-            var @object = Physics2D.Raycast(transform.position, Offset, Offset.magnitude, _layerMask);
+            var offsetm = Mathf.Max(Offset.magnitude, _circleCollider2D.radius * 0.04f);
+            var @object = Physics2D.CircleCast(transform.position, _circleCollider2D.radius * 0.03125f, Offset, offsetm, _layerMask);
             if (@object.collider != null)
             {
                 var entity = @object.collider.GetComponent<IEntity>();
                 if (entity != null) entity.Damage();
-                Collide(@object.point);
+                Collide(@object.point, @object.collider.tag);
             }
             else base.Update();
         }
 
-        public void Collide(Vector2 position)
+        protected virtual void Collide(Vector2 position, string tag)
         {
             gameObject.SetActive(false);
             var sparkle = EffectController.Instance.Sparkles.Pop();

@@ -9,11 +9,12 @@ namespace Assets.Scripts.Controllers
         [SerializeField] private Pool _shipBullets;
         [SerializeField] private Pool _middleBlobPool;
         [SerializeField] private Pool _smallBlobPool;
+        [SerializeField] private Pool _enemyBullets;
 
         public Pool ShipBullets { get { return _shipBullets; } }
-
         public Pool MiddleBlobPool { get {return _middleBlobPool;} }
         public Pool SmallBlobPool { get {return _smallBlobPool;} }
+        public Pool EnemyBullets { get {return _enemyBullets;} }
 
         public override void AwakeSingleton()
         {

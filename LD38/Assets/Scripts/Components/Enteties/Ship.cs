@@ -14,6 +14,8 @@ namespace Assets.Scripts.Components.Enteties
         private readonly int DamageTrigger = Animator.StringToHash("Damage");
         private readonly int InputDisabled = Animator.StringToHash("Input disabled");
 
+        public const string Tag = "Character";
+
         [SerializeField] private int _health;
         [SerializeField] private int _currentHealth;
         [SerializeField] private BulletSpawner _bulletSpawner;
@@ -44,8 +46,16 @@ namespace Assets.Scripts.Components.Enteties
 
         protected virtual void OnCollisionEnter2D(Collision2D other)
         {
-            if (!other.collider.tag.Equals(EnemyBase.Tag)) return;
+            Debug.Log(other.collider.name);
+            if (!other.collider.tag.Equals(EnemyBase.Tag) && !other.collider.tag.Equals(EemyBullet.Tag)) return;
+            Damage();
+        }
+
+        public void Damage()
+        {
             EffectController.Instance.BigShake();
+            var ex = EffectController.Instance.BigExplosions.Pop();
+            ex.transform.position = new Vector3(transform.position.x, transform.position.y, ex.transform.position.z);
             _currentHealth--;
             DamageAnimator();
         }

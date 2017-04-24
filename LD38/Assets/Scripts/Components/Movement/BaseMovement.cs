@@ -9,6 +9,7 @@ namespace Assets.Scripts.Components.Movement
         [SerializeField] protected float _speed;
         [SerializeField] [Binding(true)] protected Rigidbody2D _rigidbody2D;
         protected float _trueSpeed;
+        protected int _delta = 1;
 
         protected abstract Vector2 Direction { get; }
 
@@ -26,7 +27,7 @@ namespace Assets.Scripts.Components.Movement
 
         protected virtual void Translate()
         {
-            _rigidbody2D.MovePosition(_rigidbody2D.position + Offset);
+            _rigidbody2D.MovePosition(_rigidbody2D.position + Offset * _delta);
         }
     }
 }

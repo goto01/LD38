@@ -102,8 +102,10 @@
     <Compile Include="Assets\Scripts\Components\BindingExample.cs" />
     <Compile Include="Assets\Scripts\Components\BulletSystem\Bullet.cs" />
     <Compile Include="Assets\Scripts\Components\BulletSystem\BulletSpawner.cs" />
+    <Compile Include="Assets\Scripts\Components\BulletSystem\EemyBullet.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Enemies\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Enemies\MiddleSpawnEnemy.cs" />
+    <Compile Include="Assets\Scripts\Components\Enteties\Enemies\ShootableEnemy.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Enemies\SimpleEnemy.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Enemies\SpawnEnemy.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\IEntity.cs" />

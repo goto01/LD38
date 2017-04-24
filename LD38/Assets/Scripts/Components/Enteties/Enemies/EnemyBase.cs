@@ -42,7 +42,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
             Call(() => _speed = _trueSpeed, GamePlayController.Instance.EnemyStopDuration);
         }
 
-        public void Activate()
+        public virtual void Activate()
         {
             _activated = true;
             gameObject.SetActive(true);
