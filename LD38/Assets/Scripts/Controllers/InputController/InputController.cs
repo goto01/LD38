@@ -9,7 +9,7 @@ namespace Assets.Scripts.Controllers.InputController
         [SerializeField] private List<InputItem> _inputItems;
         [SerializeField] private bool _disable = false;
 
-        public bool Shot { get { return _disable ? false : _shotButton.State; } }
+        public bool Shot { get { return _disable ? false : _shotButton.State || Input.GetKey(KeyCode.Space); } }
         public bool Disabled { get { return _disable; } }
 
         public override void AwakeSingleton()

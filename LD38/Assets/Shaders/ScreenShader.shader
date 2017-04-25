@@ -5,6 +5,7 @@
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
 		_RenderTexture ("Render texture", 2D) = "white" {}
+		_LightTexture ("Light texture", 2D) = "white" {}
 	}
 
 	SubShader
@@ -63,13 +64,15 @@
 			sampler2D _MainTex;
 			sampler2D _AlphaTex;
 			sampler2D _RenderTexture;
+			sampler2D _LightTexture;
 			float _AlphaSplitEnabled;
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
 				float2 texcoord = IN.texcoord;
-				texcoord.x += sin(texcoord.y*100 + _Time.x * 70)*.002;
+				texcoord.x += sin(texcoord.y*100 + _Time.x * 200)*.002;
 				fixed4 c = tex2D(_RenderTexture, texcoord);
+				c.rgb *= saturate(tex2D(_LightTexture, IN.texcoord).a + .5);
 				return c;
 			}
 		ENDCG

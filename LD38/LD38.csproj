@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\Components\Enteties\Enemies\SpawnEnemy.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\IEntity.cs" />
     <Compile Include="Assets\Scripts\Components\Enteties\Ship.cs" />
+    <Compile Include="Assets\Scripts\Components\GhostComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Level\Door.cs" />
     <Compile Include="Assets\Scripts\Components\Level\DoorHandler.cs" />
     <Compile Include="Assets\Scripts\Components\Level\Grid.cs" />

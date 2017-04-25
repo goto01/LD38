@@ -71,12 +71,12 @@
 			fixed4 frag(v2f IN) : SV_Target
 			{
 				float2 texcoord = IN.texcoord;
-				texcoord.x += sin(texcoord.y*50 + _Time.x * 70)*.01;
+				texcoord.x += sin(texcoord.y*50 + _Time.x * 70)*.02;
 				fixed4 c = tex2D(_MainTex, texcoord);
 				float alfa = tex2D(_GlowTex, texcoord).a;
 				c.rgb *= 1 + alfa * ((sin(_Time.x*50) + 1)/2+1 );
 				c.rgb *= IN.color;
-				c.rgb += tex2D(_BloodTex, (texcoord + _Time.x)%1).rgb/50 * alfa;
+				c.rgb += tex2D(_BloodTex, (texcoord + _Time.x)%1).rgb/20 * alfa;
 				c.rgb *= c.a;
 				return c;
 			}
