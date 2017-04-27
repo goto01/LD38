@@ -50,6 +50,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
 
         protected virtual void Die()
         {
+            GamePlayController.Instance.IncKilledEnemiesNumber();
             AnamlyticsController.Instance.SendEnemyKilled();
             _currentLife = _lifes;
             gameObject.SetActive(false);

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Components.Level
 {
-    class DoorHandler : Grid
+    public class DoorHandler : Grid
     {
         [SerializeField] private List<Door> _doors;
 

@@ -6,8 +6,12 @@ namespace Assets.Scripts.Controllers
     {
         private Camera _camera;
         [SerializeField] private int _cameraScale = 6;
-        
-        public int CameraScale { get { return _cameraScale; } }
+
+        public int CameraScale
+        {
+            get { return _cameraScale; }
+            set { _cameraScale = value; }
+        }
 
         private Camera Camera
         {

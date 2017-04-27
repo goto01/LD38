@@ -17,7 +17,6 @@ namespace Assets.Scripts.Controllers
         private IEnumerator LateMusic()
         {
             yield return new WaitForSeconds(1);
-            Debug.Log("ALERT");
             AudioController.PlayMusicPlaylist("Music");
         }
 

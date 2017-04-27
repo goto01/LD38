@@ -159,6 +159,7 @@
   <ItemGroup>
     <None Include="Assets\AudioToolkit\Readme.txt" />
     <None Include="Assets\PixelPerfect\Scripts\Internal\Resources\PixelPerfectShader.shader" />
+    <None Include="Assets\Shaders\AlfaTestShader.shader" />
     <None Include="Assets\Shaders\BlikShader.shader" />
     <None Include="Assets\Shaders\Effects\GlowShader.shader" />
     <None Include="Assets\Shaders\PostScreenShader.shader" />

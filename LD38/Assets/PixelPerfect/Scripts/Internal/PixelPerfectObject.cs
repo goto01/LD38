@@ -39,7 +39,7 @@ public class PixelPerfectObject : MonoBehaviour {
 	}
 	
 	void OnEnable() {
-		SetPixelPerfect();
+		//SetPixelPerfect();
 	}
 	
 	protected void LateUpdate () {

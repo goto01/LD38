@@ -10,6 +10,7 @@ namespace Assets.Scripts.Controllers
         {
             public Vector2 Size;
             public int Scale;
+            public int CameraScale;
         }
 
         [SerializeField] private Resolution[] _resolutions;
@@ -17,7 +18,6 @@ namespace Assets.Scripts.Controllers
 
         public override void AwakeSingleton()
         {
-            SetBestScale();
         }
 
         protected virtual void Update()
@@ -42,6 +42,7 @@ namespace Assets.Scripts.Controllers
                 }
                 }
             _canvas.scaleFactor = bestResolution.Scale;
+            CameraSizeController.Instance.CameraScale = bestResolution.CameraScale;
         }
     }
 }

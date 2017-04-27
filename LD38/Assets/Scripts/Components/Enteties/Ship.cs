@@ -80,6 +80,7 @@ namespace Assets.Scripts.Components.Enteties
         {
             _currentHealth = _health;
             transform.position = _origin;
+            GamePlayController.Instance.ResetKilledEnemies();
         }
 
         public void IncHealth()

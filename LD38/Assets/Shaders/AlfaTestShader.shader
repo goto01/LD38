@@ -1,10 +1,13 @@
-﻿Shader "Custom sprites/Blik"
+﻿Shader "UI/Alfa test shader"
 {
 	Properties
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
-		_Blik ("Blik", 2D) = "white" {}
+		_AlfaTestTexture ("Alfa test texture", 2D) = "white" {}
+		_AlfaTestValue ("Alfa test", Range(0, 1)) = 1
+		_FullColor ("Full color", color) = (1,1,1,1)
+		_EmptyColor ("Full color", color) = (1,1,1,1)
 	}
 
 	SubShader
@@ -61,12 +64,18 @@
 			}
 
 			sampler2D _MainTex;
-			sampler2D _Blik;
+			sampler2D _AlfaTestTexture;
+			fixed _AlfaTestValue;
+			fixed4 _FullColor;
+			fixed4 _EmptyColor;
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
 				fixed4 c = tex2D(_MainTex, IN.texcoord) * IN.color;
-				c.rgb *= 1+tex2D(_Blik, (IN.texcoord + float2(_Time.x * 50, 0))%4).a;
+				fixed2 alfaTestCoords = fixed2(0, IN.texcoord.y);
+				fixed alfa = tex2D(_AlfaTestTexture, alfaTestCoords).r;
+				c.a = ceil(max((_AlfaTestValue - alfa), 0));
+				c.rgb = lerp(_EmptyColor, _FullColor, _AlfaTestValue);
 				c.rgb *= c.a;
 				return c;
 			}

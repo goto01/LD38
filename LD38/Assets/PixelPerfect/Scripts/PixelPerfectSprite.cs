@@ -15,7 +15,7 @@ public class PixelPerfectSprite : PixelPerfectObject {
 	float spritePixelPerUnit { get { return (spriteRenderer.sprite!=null) ? spriteRenderer.sprite.pixelsPerUnit : PixelPerfect.pixelsPerUnit;}}
 	
 	new protected void LateUpdate() {
-		base.LateUpdate();
+		//base.LateUpdate();
 	}
 	
 	override protected float GetTransformScaleFactor() {

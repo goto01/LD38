@@ -18,11 +18,21 @@ namespace Assets.Scripts.Components.Level
         [SerializeField] private int _height;
         [SerializeField] private DoorHandler _doorHandler;
         [SerializeField] private int _id;
+        [SerializeField] private int _enemiesNumber;
 
+        private bool _block;
+
+        public int EnemiesNumber { get { return _enemiesNumber; } }
         public int Id { get { return _id; } }
         public Grid Grid { get { return _grid; } }
         public Grid EnemiesGrid { get { return _enemiesGrid; } }
-        public Grid DoorsHandler { get { return _doorHandler; } }
+        public DoorHandler DoorsHandler { get { return _doorHandler; } }
+
+        public bool Block
+        {
+            get { return _block; }
+            set { _block = value; }
+        }
 
         private float TileWidth { get { return _tileWidth*.03125f; } }
         private float TileHeight { get { return _tileHeight*.03125f; } }
@@ -41,6 +51,17 @@ namespace Assets.Scripts.Components.Level
             _doorHandler.Init(width, height);
         }
 
+        public void DisableEnemies()
+        {
+            for (var row = 0; row < _height; row++)
+                for (var column = 0; column < _width; column++)
+                {
+                    if (_enemiesGrid.GridData[row].List[column].Transform == null) continue;
+                    _enemiesGrid.GridData[row].List[column].Transform.gameObject.SetActive(false);
+                }
+            _block = true;
+        }
+
         public void Reposit()
         {
             _grid.Reposit(TileWidth, TileHeight);
@@ -50,6 +71,7 @@ namespace Assets.Scripts.Components.Level
 
         protected virtual void Update()
         {
+            if (_block) return;
             var _counter = 0;
             for (var row = 0; row < _height; row++)
                 for (var column = 0; column < _width; column++)

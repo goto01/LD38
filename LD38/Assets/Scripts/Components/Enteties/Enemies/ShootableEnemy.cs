@@ -21,7 +21,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
 
         protected virtual void OnDisable()
         {
-            StopCoroutine(_coroutine);
+            if (_coroutine != null) StopCoroutine(_coroutine);
         }
 
         public void SpawnBullet()

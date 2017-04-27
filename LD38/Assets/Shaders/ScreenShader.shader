@@ -72,7 +72,7 @@
 				float2 texcoord = IN.texcoord;
 				texcoord.x += sin(texcoord.y*100 + _Time.x * 200)*.002;
 				fixed4 c = tex2D(_RenderTexture, texcoord);
-				c.rgb *= saturate(tex2D(_LightTexture, texcoord).a + .4);
+				c.rgb *= saturate(tex2D(_LightTexture, texcoord).a + .7);
 				return c;
 			}
 		ENDCG

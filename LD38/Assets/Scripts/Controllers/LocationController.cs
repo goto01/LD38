@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Assets.Scripts.Components.Level;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Assets.Scripts.Controllers
     {
         [SerializeField] private Location _origin;
         [SerializeField] private Location _currentLocation;
+        [SerializeField] private List<int> _oldLocations; 
 
         public Location CurrentLocation { get { return _currentLocation;} }
 
@@ -25,10 +27,14 @@ namespace Assets.Scripts.Controllers
             var duration = EffectController.EffectController.Instance.TransitionDuration;
             var type = (Door.DoorType)(-(int) doortype);
             StartCoroutine(Transit(duration, location, type, ship));
+            GamePlayController.Instance.TotalLocalKilledEnemiesNumber = location.EnemiesNumber;
+            GamePlayController.Instance.ReseltLocalKilledEnemies();
         }
 
         public void ResetSelf()
         {
+            _oldLocations.Clear();
+            _oldLocations.Add(_origin.Id);
             StartCoroutine(ResetCoroutine());
         }
 
@@ -49,12 +55,18 @@ namespace Assets.Scripts.Controllers
             _currentLocation.gameObject.SetActive(false);
             _currentLocation = Instantiate(location);
             _currentLocation.GetComponent<Location>().HandleDoor(type, ship);
+            if (_oldLocations.Contains(_currentLocation.Id)) _currentLocation.DisableEnemies();
             yield return new WaitForSeconds(duration/2);
             InputController.InputController.Instance.Enable();
             yield return new WaitForSeconds(duration);
-            _currentLocation.Activate();
+            if (!_oldLocations.Contains(_currentLocation.Id))
+            {
+                _currentLocation.Activate();
+                _oldLocations.Add(_currentLocation.Id);
+            }
             yield return new WaitForSeconds(EffectController.EffectController.Instance.TransitionDuration);
             InputController.InputController.Instance.Enable();
+            _currentLocation.Block = false;
         }
     }
 }
