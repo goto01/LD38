@@ -50,6 +50,7 @@ namespace Assets.Scripts.Components.Enteties.Enemies
 
         protected virtual void Die()
         {
+            AnamlyticsController.Instance.SendEnemyKilled();
             _currentLife = _lifes;
             gameObject.SetActive(false);
             var explosion = EffectController.Instance.BigExplosions.Pop();

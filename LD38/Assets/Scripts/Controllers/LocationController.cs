@@ -19,6 +19,7 @@ namespace Assets.Scripts.Controllers
         
         public void SwitchToLocation(Location location, Door.DoorType doortype, Transform ship)
         {
+            AnamlyticsController.Instance.SendNewRoom();
             InputController.InputController.Instance.Disable();
             EffectController.EffectController.Instance.FadeTransition();
             var duration = EffectController.EffectController.Instance.TransitionDuration;

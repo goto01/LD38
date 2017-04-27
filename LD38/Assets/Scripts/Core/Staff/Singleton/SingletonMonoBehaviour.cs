@@ -15,5 +15,10 @@ namespace Assets.Scripts.Core.Staff.Singleton
         }
 
         public abstract void AwakeSingleton();
+
+        protected virtual void OnDisable()
+        {
+            UnitySingleton<T>.Decrease();
+        }
     }
 }

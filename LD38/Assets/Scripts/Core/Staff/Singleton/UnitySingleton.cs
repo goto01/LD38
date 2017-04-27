@@ -49,5 +49,10 @@ namespace Assets.Scripts.Core.Staff.Singleton
             _awakeSingletonCalled = true;
             instance.Invoke(AwakeSingletonMethodName, 0);
         }
+
+        public static void Decrease()
+        {
+            _globalInstanceCount--;
+        }
     }
 }
